@@ -3,4 +3,4 @@ from __future__ import absolute_import
 from .filterset import FilterSet
 from .filters import *
 
-VERSION = (0, 1)
+VERSION = (0, 2)
