@@ -34,13 +34,21 @@ class FitlersTest(TestCase):
         cls.faker = Faker()
         cls.client = Client()
         cls.person_free_male = PersonFactory(
-            name="Free male", profile_type=PROFILE_TYPE_FREE, gender=GENDER_MALE
+            name="Free male",
+            profile_type=PROFILE_TYPE_FREE,
+            gender=GENDER_MALE
         )
         cls.person_free_female = PersonFactory(
-            name="Free female", profile_type=PROFILE_TYPE_FREE, gender=GENDER_FEMALE
+            name="Free female",
+            profile_type=PROFILE_TYPE_FREE,
+            gender=GENDER_FEMALE,
+            num_fingers=10
         )
         cls.person_member_female = PersonFactory(
-            name="Member female", profile_type=PROFILE_TYPE_MEMBER, gender=GENDER_FEMALE
+            name="Member female",
+            profile_type=PROFILE_TYPE_MEMBER,
+            gender=GENDER_FEMALE,
+            num_fingers=10
         )
         super(FitlersTest, cls).setUpClass()
 
@@ -84,6 +92,14 @@ class FitlersTest(TestCase):
             getattr(response_member_female, "content", ""), features="html.parser"
         )
         self.assertEqual(len(soup_member_female.find_all("li")), 1)
+
+        # Custom method
+        response_ten_fingers = self.client.get("/persons/?ten_fingers=yes")
+        soup_ten_fingers = BeautifulSoup(
+            getattr(response_ten_fingers, "content", ""),
+            features="html.parser"
+        )
+        self.assertEqual(len(soup_ten_fingers.find_all("li")), 2)
 
 
 if __name__ == "__main__":

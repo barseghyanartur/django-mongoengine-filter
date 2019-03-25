@@ -96,6 +96,7 @@ class Filter(object):
                     help_text=help_text,
                     **self.extra
                 )
+
         return self._field
 
     def filter(self, qs, value):
@@ -271,5 +272,5 @@ class MethodFilter(Filter):
         parent = getattr(self, "parent", None)
         parent_filter_method = getattr(parent, self.parent_action, None)
         if parent_filter_method is not None:
-            return parent_filter_method(qs, value)
+            return parent_filter_method(qs, self.name, value)
         return qs

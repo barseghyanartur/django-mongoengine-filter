@@ -1,6 +1,5 @@
 Django Filter MonogoEngine
-===========================
-
+==========================
 django-mongoengine-filter is a reusable Django application for allowing users
 to filter `mongoengine querysets`_ dynamically.
 
@@ -25,7 +24,7 @@ Install using pip:
 
     pip install django-mongoengine-filter
 
-Or from repository directly:
+Or latest development version from repository:
 
 .. code-block:: sh
 
@@ -33,23 +32,87 @@ Or from repository directly:
 
 Usage
 -----
+**Sample document**
+
+.. code-block:: python
+
+    from mongoengine import fields, document
+    from .constants import PROFILE_TYPES, PROFILE_TYPE_FREE, GENDERS, GENDER_MALE
+
+    __all__ = ("Person",)
+
+
+    class Person(document.Document):
+
+        name = fields.StringField(
+            required=True,
+            max_length=255,
+            default="Robot",
+            verbose_name="Name"
+        )
+        age = fields.IntField(required=True, verbose_name="Age")
+        num_fingers = fields.IntField(
+            required=False,
+            verbose_name="Number of fingers"
+        )
+        profile_type = fields.StringField(
+            required=False,
+            blank=False,
+            null=False,
+            choices=PROFILE_TYPES,
+            default=PROFILE_TYPE_FREE,
+        )
+        gender = fields.StringField(
+            required=False,
+            blank=False,
+            null=False,
+            choices=GENDERS,
+            default=GENDER_MALE
+        )
+
+        def __str__(self):
+            return self.name
+
+**Sample filter**
 
 .. code-block:: python
 
     import django_filters_mongoengine
 
-    class ProductFilter(django_filters_mongoengine.FilterSet):
-        class Meta:
-            model = Product
-            fields = ['name', 'price', 'manufacturer']
+    class PersonFilter(django_filters_mongoengine.FilterSet):
 
-And then in your view you could do:
+        profile_type = django_filters_mongoengine.StringFilter()
+        ten_fingers = django_filters_mongoengine.MethodFilter(
+            action="ten_fingers_filter"
+        )
+
+        class Meta:
+            model = Person
+            fields = ["profile_type", "ten_fingers"]
+
+        def ten_fingers_filter(self, queryset, name, value):
+            if value == 'yes':
+                return queryset.filter(num_fingers=10)
+            return queryset
+
+**Sample view**
 
 .. code-block:: python
 
-    def product_list(request):
-        filter = ProductFilter(request.GET, queryset=Product.objects.all())
-        return render_to_response('my_app/template.html', {'filter': filter})
+    def person_list(request):
+        filter = PersonFilter(request.GET, queryset=Person.objects())
+        return render(request, "dfm_app/person_list.html", {"objects": filter.qs})
+
+**Sample requests**
+
+
+- GET /persons/
+- GET /persons/?profile_type=free&gender=male
+- GET /persons/?profile_type=free&gender=female
+- GET /persons/?profile_type=member&gender=female
+- GET /persons/?ten_fingers=yes
+
+**Read more**
 
 .. _`mongoengine querysets`: http://mongoengine-odm.readthedocs.org/apireference.html#module-mongoengine.queryset
 .. _`read the docs`: https://django-filter.readthedocs.org/en/latest/
