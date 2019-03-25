@@ -1,0 +1,1 @@
+- Fix `django_filters_mongoengine.MethodFilter`.

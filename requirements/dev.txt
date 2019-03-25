@@ -1,0 +1,5 @@
+-r django_2_1.txt
+-r debug.txt
+-r test.txt
+
+black

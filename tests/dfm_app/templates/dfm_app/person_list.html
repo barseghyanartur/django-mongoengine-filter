@@ -1,0 +1,6 @@
+{#% for obj in filter.qs %#}
+<ul>
+{% for obj in objects %}
+    <li>{{ obj.name }} - {{ obj.age }}</li>
+{% endfor %}
+</ul>
