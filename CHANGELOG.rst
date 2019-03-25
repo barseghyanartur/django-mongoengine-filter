@@ -5,6 +5,8 @@ Changelog
 ---
 2019-03-25
 
+*Got status beta*
+
 .. note::
 
     Namespace changed from `django_filters_mongoengine` to

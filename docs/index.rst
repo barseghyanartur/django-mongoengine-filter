@@ -1,5 +1,5 @@
 =========================
-django-filter-mongoengine
+django-mongoengine-filter
 =========================
 `django-mongoengine-filter` is a reusable Django application for allowing users
 to filter `mongoengine querysets`_ dynamically. It's very similar to

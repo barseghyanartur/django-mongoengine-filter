@@ -20,7 +20,7 @@ setup(
     package_data={"django_mongoengine_filter": ["locale/*/LC_MESSAGES/*"]},
     license="BSD",
     classifiers=[
-        "Development Status :: 3 - Alpha",
+        "Development Status :: 4 - Beta",
         "Environment :: Web Environment",
         "Intended Audience :: Developers",
         "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
