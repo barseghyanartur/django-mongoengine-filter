@@ -9,3 +9,7 @@ rm -rf build/
 rm -rf dist/
 rm -rf .cache/
 rm -rf htmlcov/
+rm -rf builddocs/
+rm -rf builddocs.zip
+rm -rf .pytest_cache/
+rm -rf .tox/

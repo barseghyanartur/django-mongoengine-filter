@@ -78,12 +78,12 @@ Usage
 
 .. code-block:: python
 
-    import django_filters_mongoengine
+    import django_mongoengine_filter
 
-    class PersonFilter(django_filters_mongoengine.FilterSet):
+    class PersonFilter(django_mongoengine_filter.FilterSet):
 
-        profile_type = django_filters_mongoengine.StringFilter()
-        ten_fingers = django_filters_mongoengine.MethodFilter(
+        profile_type = django_mongoengine_filter.StringFilter()
+        ten_fingers = django_mongoengine_filter.MethodFilter(
             action="ten_fingers_filter"
         )
 

@@ -1,20 +1,20 @@
-import django_filters_mongoengine
+import django_mongoengine_filter
 
 from .documents import Person
 
 __all__ = ("PersonFilter",)
 
 
-class PersonFilter(django_filters_mongoengine.FilterSet):
+class PersonFilter(django_mongoengine_filter.FilterSet):
 
-    profile_type = django_filters_mongoengine.StringFilter()
-    ten_fingers = django_filters_mongoengine.MethodFilter(
+    profile_type = django_mongoengine_filter.StringFilter()
+    ten_fingers = django_mongoengine_filter.MethodFilter(
         action="ten_fingers_filter"
     )
-    # gender = django_filters_mongoengine.StringFilter()
-    # contract_type = django_filters_mongoengine.StringFilter()
-    # type = django_filters_mongoengine.StringFilter()
-    # work_think_level = django_filters_mongoengine.StringFilter()
+    # gender = django_mongoengine_filter.StringFilter()
+    # contract_type = django_mongoengine_filter.StringFilter()
+    # type = django_mongoengine_filter.StringFilter()
+    # work_think_level = django_mongoengine_filter.StringFilter()
 
     class Meta:
         model = Person

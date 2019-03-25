@@ -5,6 +5,11 @@ Changelog
 ---
 2019-03-25
 
+.. note::
+
+    Namespace changed from `django_filters_mongoengine` to
+    `django_mongoengine_filter`. Modify your imports accordingly.
+
 - Clean up.
 - Added docs, manifest, tox.
 

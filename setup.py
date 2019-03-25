@@ -17,7 +17,7 @@ setup(
     author_email="artur.barseghyan@gmail.com",
     url="https://github.com/barseghyanartur/django-mongoengine-filter",
     packages=find_packages(exclude=["tests"]),
-    package_data={"django_filters_mongoengine": ["locale/*/LC_MESSAGES/*"]},
+    package_data={"django_mongoengine_filter": ["locale/*/LC_MESSAGES/*"]},
     license="BSD",
     classifiers=[
         "Development Status :: 3 - Alpha",

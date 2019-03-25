@@ -22,12 +22,12 @@ import os
 sys.path.insert(0, os.path.abspath("."))
 sys.path.insert(0, os.path.abspath("./tests"))
 try:
-    import django_filters_mongoengine
+    import django_mongoengine_filter
     from tests import settings as docs_settings
 
-    version = django_filters_mongoengine.__version__
-    project = django_filters_mongoengine.__title__
-    copyright = django_filters_mongoengine.__copyright__
+    version = django_mongoengine_filter.__version__
+    project = django_mongoengine_filter.__title__
+    copyright = django_mongoengine_filter.__copyright__
 except Exception as e:
     version = "0.1"
     project = u"django-filter-mongoengine"
