@@ -24,6 +24,12 @@ except:  # pragma: nocover
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext as _
 
+__all__ = (
+    "LinkWidget",
+    "LookupTypeWidget",
+    "RangeWidget",
+)
+
 
 class LinkWidget(forms.Widget):
     def __init__(self, attrs=None, choices=()):
@@ -55,7 +61,9 @@ class LinkWidget(forms.Widget):
         for option_value, option_label in chain(self.choices, choices):
             if isinstance(option_label, (list, tuple)):
                 for option in option_label:
-                    output.append(self.render_option(name, selected_choices, *option))
+                    output.append(
+                        self.render_option(name, selected_choices, *option)
+                    )
             else:
                 output.append(
                     self.render_option(

@@ -5,7 +5,6 @@ from datetime import timedelta
 
 
 from django import forms
-from mongoengine import Q
 from django.utils import six
 from django.utils.timezone import now
 from django.utils.translation import ugettext_lazy as _

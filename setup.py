@@ -6,7 +6,7 @@ f.close()
 
 setup(
     name="django-mongoengine-filter",
-    version="0.2",
+    version="0.3",
     description=(
         "django-mongoengine-filter is a reusable Django application inspired "
         "from django-filter for allowing mongoengine users to filter querysets "
@@ -28,6 +28,7 @@ setup(
         "later (LGPLv2+)",
         "Operating System :: OS Independent",
         "Programming Language :: Python",
+        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         "Framework :: Django",

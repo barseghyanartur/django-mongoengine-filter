@@ -42,6 +42,8 @@ nosetests.xml
 coverage.xml
 *,cover
 .pytest_cache/
+builddocs/
+builddocs.zip
 
 # Translations
 *.mo

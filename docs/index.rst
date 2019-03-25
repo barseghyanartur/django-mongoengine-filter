@@ -189,3 +189,22 @@ Artur Barseghyan <artur.barseghyan@gmail.com>
 
 .. _`mongoengine querysets`: http://mongoengine-odm.readthedocs.org/apireference.html#module-mongoengine.queryset
 .. _`read the docs`: https://django-mongoengine-filter.readthedocs.org/en/latest/
+
+Documentation
+===================================================
+Contents:
+
+.. toctree::
+   :maxdepth: 20
+
+   index
+   filters_doc
+   widgets_doc
+   changelog
+
+Indices and tables
+===================================================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

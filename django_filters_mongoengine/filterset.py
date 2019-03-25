@@ -1,36 +1,20 @@
 from __future__ import absolute_import
 from __future__ import unicode_literals
 
+from collections import OrderedDict
 from copy import deepcopy
-import mongoengine
-from mongoengine.errors import LookUpError
-from mongoengine.fields import EmbeddedDocumentField, ListField
+
 from django import forms
 from django.core.validators import EMPTY_VALUES
 from django.db import models
-from django.db.models.fields import FieldDoesNotExist
+from django.db.models.constants import LOOKUP_SEP
 from django.utils import six
 from django.utils.text import capfirst
 from django.utils.translation import ugettext as _
 
-try:
-    from django.db.models.related import RelatedObject as ForeignObjectRel
-except:
-    # django 1.8 +
-    from django.db.models.fields.related import ForeignObjectRel
-
-try:
-    from django.db.models.constants import LOOKUP_SEP
-except ImportError:  # pragma: nocover
-    # Django < 1.5 fallback
-    from django.db.models.sql.constants import LOOKUP_SEP  # noqa
-
-try:
-    from collections import OrderedDict
-except ImportError:  # pragma: nocover
-    # Django < 1.5 fallback
-    from django.utils.datastructures import SortedDict as OrderedDict  # noqa
-
+import mongoengine
+from mongoengine.errors import LookUpError
+from mongoengine.fields import EmbeddedDocumentField, ListField
 
 from .filters import (
     Filter,
@@ -47,6 +31,19 @@ from .filters import (
 
 
 ORDER_BY_FIELD = "o"
+
+__all__ = (
+    "BaseFilterSet",
+    "FILTER_FOR_DBFIELD_DEFAULTS",
+    "filters_for_model",
+    "FilterSet",
+    "filterset_factory",
+    "FilterSetMetaclass",
+    "FilterSetOptions",
+    "get_declared_filters",
+    "get_model_field",
+    "ORDER_BY_FIELD",
+)
 
 
 def get_declared_filters(bases, attrs, with_base_filters=True):
