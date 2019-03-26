@@ -8,12 +8,7 @@ from django.views.generic.list import MultipleObjectTemplateResponseMixin
 
 from .filterset import filterset_factory
 
-__all__ = (
-    "BaseFilterView",
-    "FilterMixin",
-    "FilterView",
-    "object_filter",
-)
+__all__ = ("BaseFilterView", "FilterMixin", "FilterView", "object_filter")
 
 
 class FilterMixin(object):

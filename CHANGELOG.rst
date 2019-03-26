@@ -1,6 +1,13 @@
 Changelog
 =========
 
+0.3.1
+-----
+2019-03-26
+
+- More tests.
+- Addition to docs.
+
 0.3
 ---
 2019-03-25

@@ -141,12 +141,16 @@ class FilterSetMetaclass(type):
             # We are defining FilterSet itself here
             parents = None
         declared_filters = get_declared_filters(bases, attrs, False)
-        new_class = super(FilterSetMetaclass, cls).__new__(cls, name, bases, attrs)
+        new_class = super(FilterSetMetaclass, cls).__new__(
+            cls, name, bases, attrs
+        )
 
         if not parents:
             return new_class
 
-        opts = new_class._meta = FilterSetOptions(getattr(new_class, "Meta", None))
+        opts = new_class._meta = FilterSetOptions(
+            getattr(new_class, "Meta", None)
+        )
         if opts.model:
             filters = filters_for_model(
                 opts.model,
@@ -161,7 +165,8 @@ class FilterSetMetaclass(type):
 
         if None in filters.values():
             raise TypeError(
-                "Meta.fields contains a field that isn't defined " "on this FilterSet"
+                "Meta.fields contains a field that isn't defined "
+                "on this FilterSet"
             )
 
         new_class.declared_filters = declared_filters
@@ -258,7 +263,9 @@ class BaseFilterSet(object):
                     pass
 
                 if ordered_value in EMPTY_VALUES and self.strict:
-                    ordered_value = self.form.fields[self.order_by_field].choices[0][0]
+                    ordered_value = self.form.fields[
+                        self.order_by_field
+                    ].choices[0][0]
 
                 if ordered_value:
                     qs = qs.order_by(*self.get_order_by(ordered_value))
@@ -274,11 +281,16 @@ class BaseFilterSet(object):
     def form(self):
         if not hasattr(self, "_form"):
             fields = OrderedDict(
-                [(name, filter_.field) for name, filter_ in six.iteritems(self.filters)]
+                [
+                    (name, filter_.field)
+                    for name, filter_ in six.iteritems(self.filters)
+                ]
             )
             fields[self.order_by_field] = self.ordering_field
             Form = type(
-                str("%sForm" % self.__class__.__name__), (self._meta.form,), fields
+                str("%sForm" % self.__class__.__name__),
+                (self._meta.form,),
+                fields,
             )
             if self.is_bound:
                 self._form = Form(self.data, prefix=self.form_prefix)
@@ -312,11 +324,16 @@ class BaseFilterSet(object):
                             (fltr.name or f, fltr.label or capfirst(f)),
                             (
                                 "-%s" % (fltr.name or f),
-                                _("%s (descending)" % (fltr.label or capfirst(f))),
+                                _(
+                                    "%s (descending)"
+                                    % (fltr.label or capfirst(f))
+                                ),
                             ),
                         ]
                     )
-            return forms.ChoiceField(label="Ordering", required=False, choices=choices)
+            return forms.ChoiceField(
+                label="Ordering", required=False, choices=choices
+            )
 
     @property
     def ordering_field(self):
@@ -383,6 +400,8 @@ class FilterSet(six.with_metaclass(FilterSetMetaclass, BaseFilterSet)):
 def filterset_factory(model):
     meta = type(str("Meta"), (object,), {"model": model})
     filterset = type(
-        str("%sFilterSet" % model._meta.object_name), (FilterSet,), {"Meta": meta}
+        str("%sFilterSet" % model._meta.object_name),
+        (FilterSet,),
+        {"Meta": meta},
     )
     return filterset

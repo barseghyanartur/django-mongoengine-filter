@@ -98,11 +98,24 @@ Usage
 
 **Sample view**
 
+With function-based views:
+
 .. code-block:: python
 
     def person_list(request):
         filter = PersonFilter(request.GET, queryset=Person.objects())
         return render(request, "dfm_app/person_list.html", {"objects": filter.qs})
+
+Or class-based views:
+
+.. code-block:: python
+
+    from django_mongoengine_filter.views import FilterView
+
+    class PersonListView(FilterView):
+
+        filterset_class = PersonFilter
+        template_name = "dfm_app/person_list.html"
 
 **Sample template**
 

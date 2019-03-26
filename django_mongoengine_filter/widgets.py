@@ -24,11 +24,7 @@ except:  # pragma: nocover
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext as _
 
-__all__ = (
-    "LinkWidget",
-    "LookupTypeWidget",
-    "RangeWidget",
-)
+__all__ = ("LinkWidget", "LookupTypeWidget", "RangeWidget")
 
 
 class LinkWidget(forms.Widget):

@@ -38,10 +38,7 @@ except Exception as e:
 
     docs_settings = Settings()
     docs_settings.DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": ":memory:"
-        }
+        "default": {"ENGINE": "django.db.backends.sqlite3", "NAME": ":memory:"}
     }
 
     docs_settings.SECRET_KEY = "top-secret"
@@ -75,11 +72,7 @@ except Exception as e:
         }
     ]
 
-    docs_settings.ALLOWED_HOSTS = [
-        '*',
-        '127.0.0.1',
-        'localhost',
-    ]
+    docs_settings.ALLOWED_HOSTS = ["*", "127.0.0.1", "localhost"]
 
 # -- Django configuration ------------------------------------------------------
 from django.conf import settings

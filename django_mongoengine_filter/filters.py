@@ -73,11 +73,15 @@ class Filter(object):
     def field(self):
         if not hasattr(self, "_field"):
             help_text = _("This is an exclusion filter") if self.exclude else ""
-            if self.lookup_type is None or isinstance(self.lookup_type, (list, tuple)):
+            if self.lookup_type is None or isinstance(
+                self.lookup_type, (list, tuple)
+            ):
                 if self.lookup_type is None:
                     lookup = [(x, x) for x in LOOKUP_TYPES]
                 else:
-                    lookup = [(x, x) for x in LOOKUP_TYPES if x in self.lookup_type]
+                    lookup = [
+                        (x, x) for x in LOOKUP_TYPES if x in self.lookup_type
+                    ]
                 self._field = LookupTypeField(
                     self.field_class(
                         required=self.required, widget=self.widget, **self.extra
@@ -175,7 +179,9 @@ class RangeFilter(Filter):
         if value:
             start_lookup = "%s__gte" % self.name
             stop_lookup = "%s__lte" % self.name
-            return qs.filter(**{start_lookup: value.start, stop_lookup: value.stop})
+            return qs.filter(
+                **{start_lookup: value.start, stop_lookup: value.stop}
+            )
         return qs
 
 
@@ -207,7 +213,10 @@ class DateRangeFilter(ChoiceFilter):
         3: (
             _("This month"),
             lambda qs, name: qs.filter(
-                **{"%s__year" % name: now().year, "%s__month" % name: now().month}
+                **{
+                    "%s__year" % name: now().year,
+                    "%s__month" % name: now().month,
+                }
             ),
         ),
         4: (

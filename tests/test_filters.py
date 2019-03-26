@@ -12,6 +12,7 @@ from faker import Faker
 
 from mongoengine import connect
 
+from django.urls import reverse
 from django.test import TestCase, Client
 
 from .dfm_app.constants import (
@@ -36,25 +37,28 @@ class FitlersTest(TestCase):
         cls.person_free_male = PersonFactory(
             name="Free male",
             profile_type=PROFILE_TYPE_FREE,
-            gender=GENDER_MALE
+            gender=GENDER_MALE,
+            num_fingers=11,
         )
         cls.person_free_female = PersonFactory(
             name="Free female",
             profile_type=PROFILE_TYPE_FREE,
             gender=GENDER_FEMALE,
-            num_fingers=10
+            num_fingers=10,
         )
         cls.person_member_female = PersonFactory(
             name="Member female",
             profile_type=PROFILE_TYPE_MEMBER,
             gender=GENDER_FEMALE,
-            num_fingers=10
+            num_fingers=10,
         )
+        cls.url = reverse("person_list")
+        cls.url_cbv = reverse("person_list_cbv")
         super(FitlersTest, cls).setUpClass()
 
-    def test_base(self):
+    def _test_base(self, url):
         # All
-        response_all = self.client.get("/persons/")
+        response_all = self.client.get(url)
         soup_all = BeautifulSoup(
             getattr(response_all, "content", ""), features="html.parser"
         )
@@ -62,8 +66,8 @@ class FitlersTest(TestCase):
 
         # Free male
         response_free_male = self.client.get(
-            "/persons/?profile_type={profile_type}&gender={gender}".format(
-                profile_type=PROFILE_TYPE_FREE, gender=GENDER_MALE
+            "{url}?profile_type={profile_type}&gender={gender}".format(
+                url=url, profile_type=PROFILE_TYPE_FREE, gender=GENDER_MALE
             )
         )
         soup_free_male = BeautifulSoup(
@@ -73,8 +77,8 @@ class FitlersTest(TestCase):
 
         # Free female
         response_free_female = self.client.get(
-            "/persons/?profile_type={profile_type}&gender={gender}".format(
-                profile_type=PROFILE_TYPE_FREE, gender=GENDER_FEMALE
+            "{url}?profile_type={profile_type}&gender={gender}".format(
+                url=url, profile_type=PROFILE_TYPE_FREE, gender=GENDER_FEMALE
             )
         )
         soup_free_female = BeautifulSoup(
@@ -84,22 +88,30 @@ class FitlersTest(TestCase):
 
         # Member female
         response_member_female = self.client.get(
-            "/persons/?profile_type={profile_type}&gender={gender}".format(
-                profile_type=PROFILE_TYPE_MEMBER, gender=GENDER_FEMALE
+            "{url}?profile_type={profile_type}&gender={gender}".format(
+                url=url, profile_type=PROFILE_TYPE_MEMBER, gender=GENDER_FEMALE
             )
         )
         soup_member_female = BeautifulSoup(
-            getattr(response_member_female, "content", ""), features="html.parser"
+            getattr(response_member_female, "content", ""),
+            features="html.parser",
         )
         self.assertEqual(len(soup_member_female.find_all("li")), 1)
 
         # Custom method
-        response_ten_fingers = self.client.get("/persons/?ten_fingers=yes")
+        response_ten_fingers = self.client.get(
+            "{url}?ten_fingers=yes".format(url=url)
+        )
         soup_ten_fingers = BeautifulSoup(
-            getattr(response_ten_fingers, "content", ""),
-            features="html.parser"
+            getattr(response_ten_fingers, "content", ""), features="html.parser"
         )
         self.assertEqual(len(soup_ten_fingers.find_all("li")), 2)
+
+    def test_base(self):
+        return self._test_base(self.url)
+
+    def test_base_cbv(self):
+        return self._test_base(self.url_cbv)
 
 
 if __name__ == "__main__":

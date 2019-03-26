@@ -1,4 +1,6 @@
-DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": ":memory:"}}
+DATABASES = {
+    "default": {"ENGINE": "django.db.backends.sqlite3", "NAME": ":memory:"}
+}
 
 SECRET_KEY = "top-secret"
 
@@ -32,8 +34,4 @@ TEMPLATES = [
     }
 ]
 
-ALLOWED_HOSTS = [
-    '*',
-    '127.0.0.1',
-    'localhost',
-]
+ALLOWED_HOSTS = ["*", "127.0.0.1", "localhost"]
