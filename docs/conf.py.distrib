@@ -33,6 +33,54 @@ except Exception as e:
     project = u"django-filter-mongoengine"
     copyright = u"2019, Artur Barseghyan <artur.barseghyan@gmail.com>"
 
+    class Settings(object):
+        pass
+
+    docs_settings = Settings()
+    docs_settings.DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": ":memory:"
+        }
+    }
+
+    docs_settings.SECRET_KEY = "top-secret"
+
+    docs_settings.INSTALLED_APPS = [
+        "django.contrib.admin",
+        "django.contrib.auth",
+        "django.contrib.contenttypes",
+        "django.contrib.sessions",
+        "django.contrib.messages",
+        "django.contrib.staticfiles",
+        # Third party
+        "dfm_app",
+    ]
+
+    docs_settings.ROOT_URLCONF = "urls"
+
+    docs_settings.TEMPLATES = [
+        {
+            "BACKEND": "django.template.backends.django.DjangoTemplates",
+            "DIRS": [],
+            "APP_DIRS": True,
+            "OPTIONS": {
+                "context_processors": [
+                    "django.template.context_processors.debug",
+                    "django.template.context_processors.request",
+                    "django.contrib.auth.context_processors.auth",
+                    "django.contrib.messages.context_processors.messages",
+                ]
+            },
+        }
+    ]
+
+    docs_settings.ALLOWED_HOSTS = [
+        '*',
+        '127.0.0.1',
+        'localhost',
+    ]
+
 # -- Django configuration ------------------------------------------------------
 from django.conf import settings
 
