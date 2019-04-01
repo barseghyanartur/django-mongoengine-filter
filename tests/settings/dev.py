@@ -2,6 +2,10 @@ import os
 from .helpers import PROJECT_DIR
 from .base import *
 
+import mongoengine
+
+mongoengine.connect()
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 DEBUG = True
