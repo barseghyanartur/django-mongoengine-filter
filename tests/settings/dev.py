@@ -1,8 +1,7 @@
 import os
+import mongoengine
 from .helpers import PROJECT_DIR
 from .base import *
-
-import mongoengine
 
 mongoengine.connect()
 
