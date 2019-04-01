@@ -16,5 +16,6 @@ def person_list(request):
 
 class PersonListView(FilterView):
 
+    queryset = Person.objects()
     filterset_class = PersonFilter
     template_name = "dfm_app/person_list.html"
