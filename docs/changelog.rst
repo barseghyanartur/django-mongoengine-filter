@@ -1,6 +1,13 @@
 Changelog
 =========
 
+0.3.2
+-----
+2019-04-01
+
+- Fixes in class-based views.
+- Addition to docs.
+
 0.3.1
 -----
 2019-03-26

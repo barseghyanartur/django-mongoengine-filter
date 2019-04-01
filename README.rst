@@ -101,7 +101,7 @@ With function-based views:
 
     def person_list(request):
         filter = PersonFilter(request.GET, queryset=Person.objects())
-        return render(request, "dfm_app/person_list.html", {"objects": filter.qs})
+        return render(request, "dfm_app/person_list.html", {"object_list": filter.qs})
 
 Or class-based views:
 
@@ -119,7 +119,7 @@ Or class-based views:
 .. code-block:: html
 
     <ul>
-    {% for obj in objects %}
+    {% for obj in object_list %}
         <li>{{ obj.name }} - {{ obj.age }}</li>
     {% endfor %}
     </ul>
