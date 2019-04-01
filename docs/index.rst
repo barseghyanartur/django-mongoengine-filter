@@ -40,9 +40,6 @@ Usage
     from mongoengine import fields, document
     from .constants import PROFILE_TYPES, PROFILE_TYPE_FREE, GENDERS, GENDER_MALE
 
-    __all__ = ("Person",)
-
-
     class Person(document.Document):
 
         name = fields.StringField(
