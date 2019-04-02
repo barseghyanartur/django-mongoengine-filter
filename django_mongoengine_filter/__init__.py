@@ -3,7 +3,7 @@ from __future__ import absolute_import
 from .filterset import FilterSet
 from .filters import *
 
-VERSION = (0, 3, 2)
+VERSION = (0, 3, 3)
 
 __title__ = "django-mongoengine-filter"
 __version__ = ".".join([str(_i) for _i in VERSION])

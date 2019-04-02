@@ -6,7 +6,7 @@ f.close()
 
 setup(
     name="django-mongoengine-filter",
-    version="0.3.2",
+    version="0.3.3",
     description=(
         "django-mongoengine-filter is a reusable Django application inspired "
         "from django-filter for allowing mongoengine users to filter querysets "
@@ -18,7 +18,7 @@ setup(
     url="https://github.com/barseghyanartur/django-mongoengine-filter",
     packages=find_packages(exclude=["tests"]),
     package_data={"django_mongoengine_filter": ["locale/*/LC_MESSAGES/*"]},
-    license="BSD",
+    license="GPL 2.0/LGPL 2.1",
     classifiers=[
         "Development Status :: 4 - Beta",
         "Environment :: Web Environment",
