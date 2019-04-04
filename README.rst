@@ -100,7 +100,7 @@ With function-based views:
 .. code-block:: python
 
     def person_list(request):
-        filter = PersonFilter(request.GET, queryset=Person.objects())
+        filter = PersonFilter(request.GET, queryset=Person.objects)
         return render(request, "dfm_app/person_list.html", {"object_list": filter.qs})
 
 Or class-based views:

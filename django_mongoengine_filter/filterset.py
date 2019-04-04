@@ -196,7 +196,7 @@ class BaseFilterSet(object):
         self.is_bound = data is not None
         self.data = data or {}
         if queryset is None:
-            queryset = self._meta.model.objects()
+            queryset = self._meta.model.objects
         self.queryset = queryset
         self.form_prefix = prefix
         if strict is not None:
@@ -381,7 +381,7 @@ class BaseFilterSet(object):
     @classmethod
     def filter_for_reverse_field(cls, f, name):
         rel = f.field.rel
-        queryset = f.model.objects().all()
+        queryset = f.model.objects
         default = {
             "name": name,
             "label": capfirst(rel.related_name),

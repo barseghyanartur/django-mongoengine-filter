@@ -1,6 +1,12 @@
 Changelog
 =========
 
+0.3.4
+-----
+2019-04-04
+
+- Using lazy queries where possible.
+
 0.3.3
 -----
 2019-04-02
