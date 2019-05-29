@@ -18,7 +18,7 @@ setup(
     url="https://github.com/barseghyanartur/django-mongoengine-filter",
     packages=find_packages(exclude=["tests"]),
     package_data={"django_mongoengine_filter": ["locale/*/LC_MESSAGES/*"]},
-    license="GPL 2.0/LGPL 2.1",
+    license="GPL-2.0-only OR LGPL-2.1-or-later",
     classifiers=[
         "Development Status :: 4 - Beta",
         "Environment :: Web Environment",
@@ -31,6 +31,7 @@ setup(
         "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
         "Framework :: Django",
     ],
     include_package_data=True,
