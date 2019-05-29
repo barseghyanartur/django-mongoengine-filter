@@ -1,0 +1,71 @@
+dist: xenial
+
+language: python
+
+services:
+  - mongodb
+
+matrix:
+  fast_finish: true
+  include:
+  - env: TOX_ENV=py27-mg35-django111
+    python: 2.7
+  - env: TOX_ENV=py35-mg35-django111
+    python: 3.5
+  - env: TOX_ENV=py36-mg35-django111
+    python: 3.6
+  - env: TOX_ENV=py37-mg35-django111
+    python: 3.7
+
+  - env: TOX_ENV=py27-mg3x-django111
+    python: 2.7
+  - env: TOX_ENV=py35-mg3x-django111
+    python: 3.5
+  - env: TOX_ENV=py36-mg3x-django111
+    python: 3.6
+  - env: TOX_ENV=py37-mg3x-django111
+    python: 3.7
+
+  - env: TOX_ENV=py35-mg35-django20
+    python: 3.5
+  - env: TOX_ENV=py36-mg35-django20
+    python: 3.6
+  - env: TOX_ENV=py37-mg35-django20
+    python: 3.7
+
+  - env: TOX_ENV=py35-mg3x-django20
+    python: 3.5
+  - env: TOX_ENV=py36-mg3x-django20
+    python: 3.6
+  - env: TOX_ENV=py37-mg3x-django20
+    python: 3.7
+
+  - env: TOX_ENV=py35-mg35-django21
+    python: 3.5
+  - env: TOX_ENV=py36-mg35-django21
+    python: 3.6
+  - env: TOX_ENV=py37-mg35-django21
+    python: 3.7
+
+  - env: TOX_ENV=py35-mg3x-django22
+    python: 3.5
+  - env: TOX_ENV=py36-mg3x-django22
+    python: 3.6
+  - env: TOX_ENV=py37-mg3x-django22
+    python: 3.7
+
+  - env: TOX_ENV=py35-mg3x-django22
+    python: 3.5
+  - env: TOX_ENV=py36-mg3x-django21
+    python: 3.6
+  - env: TOX_ENV=py37-mg3x-django22
+    python: 3.7
+
+before_script:
+  - sleep 15
+  - mongo mydb_test --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
+
+install:
+  - pip install -r requirements/test.txt
+
+script: travis_retry tox -e $TOX_ENV
