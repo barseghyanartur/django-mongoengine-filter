@@ -1,10 +1,10 @@
 =========================
 django-mongoengine-filter
 =========================
-`django-mongoengine-filter` is a reusable Django application for allowing users
-to filter `mongoengine querysets`_ dynamically. It's very similar to
-popular `django-filter` library and is design to be used as a drop-in
-replacement (as much as it's possible) strictly tied to `MongoEngine`.
+``django-mongoengine-filter`` is a reusable Django application for allowing
+users to filter `mongoengine querysets`_ dynamically. It's very similar to
+popular ``django-filter`` library and is designed to be used as a drop-in
+replacement (as much as it's possible) strictly tied to ``MongoEngine``.
 
 Full documentation on `Read the docs`_.
 
