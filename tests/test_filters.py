@@ -23,13 +23,13 @@ from .dfm_app.constants import (
 )
 from .factories import *
 
-__all__ = ("FitlersTest",)
+__all__ = ("FiltersTest",)
 
 db = connect("test")
 db.drop_database("test")
 
 
-class FitlersTest(TestCase):
+class FiltersTest(TestCase):
     @classmethod
     def setUpClass(cls):
         cls.faker = Faker()
@@ -54,7 +54,7 @@ class FitlersTest(TestCase):
         )
         cls.url = reverse("person_list")
         cls.url_cbv = reverse("person_list_cbv")
-        super(FitlersTest, cls).setUpClass()
+        super(FiltersTest, cls).setUpClass()
 
     def _test_base(self, url):
         # All
