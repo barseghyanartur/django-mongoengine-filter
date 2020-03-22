@@ -5,9 +5,10 @@ from datetime import timedelta
 
 
 from django import forms
-from django.utils import six
 from django.utils.timezone import now
 from django.utils.translation import ugettext_lazy as _
+
+import six
 
 from .fields import RangeField, LookupTypeField, Lookup
 

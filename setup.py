@@ -4,9 +4,24 @@ f = open("README.rst")
 readme = f.read()
 f.close()
 
+install_requires = [
+    'six>=1.9',
+]
+
+extras_require = []
+
+tests_require = [
+    'factory_boy',
+    'fake-factory',
+    'pytest',
+    'pytest-django',
+    'pytest-cov',
+    'tox',
+]
+
 setup(
     name="django-mongoengine-filter",
-    version="0.3.4",
+    version="0.3.5",
     description=(
         "django-mongoengine-filter is a reusable Django application inspired "
         "from django-filter for allowing mongoengine users to filter querysets "
@@ -16,6 +31,15 @@ setup(
     author="Artur Barseghyhan",
     author_email="artur.barseghyan@gmail.com",
     url="https://github.com/barseghyanartur/django-mongoengine-filter",
+    project_urls={
+        "Bug Tracker": "https://github.com/barseghyanartur/"
+                       "django-mongoengine-filter/issues",
+        "Documentation": "https://django-mongoengine-filter.readthedocs.io/",
+        "Source Code": "https://github.com/barseghyanartur/"
+                       "django-mongoengine-filter",
+        "Changelog": "https://django-mongoengine-filter.readthedocs.io/"
+                     "en/latest/changelog.html",
+    },
     packages=find_packages(exclude=["tests"]),
     package_data={"django_mongoengine_filter": ["locale/*/LC_MESSAGES/*"]},
     license="GPL-2.0-only OR LGPL-2.1-or-later",
@@ -32,8 +56,12 @@ setup(
         "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
         "Framework :: Django",
     ],
+    python_requires=">=2.7",
+    install_requires=(install_requires + extras_require),
+    tests_require=tests_require,
     include_package_data=True,
     zip_safe=False,
 )

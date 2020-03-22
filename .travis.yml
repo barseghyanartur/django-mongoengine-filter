@@ -16,6 +16,8 @@ matrix:
     python: 3.6
   - env: TOX_ENV=py37-mg35-django111
     python: 3.7
+  - env: TOX_ENV=py38-mg35-django111
+    python: 3.8
 
   - env: TOX_ENV=py27-mg3x-django111
     python: 2.7
@@ -25,6 +27,8 @@ matrix:
     python: 3.6
   - env: TOX_ENV=py37-mg3x-django111
     python: 3.7
+  - env: TOX_ENV=py38-mg3x-django111
+    python: 3.8
 
   - env: TOX_ENV=py35-mg35-django20
     python: 3.5
@@ -32,6 +36,8 @@ matrix:
     python: 3.6
   - env: TOX_ENV=py37-mg35-django20
     python: 3.7
+  - env: TOX_ENV=py38-mg35-django20
+    python: 3.8
 
   - env: TOX_ENV=py35-mg3x-django20
     python: 3.5
@@ -39,6 +45,8 @@ matrix:
     python: 3.6
   - env: TOX_ENV=py37-mg3x-django20
     python: 3.7
+  - env: TOX_ENV=py38-mg3x-django20
+    python: 3.8
 
   - env: TOX_ENV=py35-mg35-django21
     python: 3.5
@@ -46,6 +54,8 @@ matrix:
     python: 3.6
   - env: TOX_ENV=py37-mg35-django21
     python: 3.7
+  - env: TOX_ENV=py38-mg35-django21
+    python: 3.8
 
   - env: TOX_ENV=py35-mg3x-django22
     python: 3.5
@@ -53,6 +63,8 @@ matrix:
     python: 3.6
   - env: TOX_ENV=py37-mg3x-django22
     python: 3.7
+  - env: TOX_ENV=py38-mg3x-django22
+    python: 3.8
 
   - env: TOX_ENV=py35-mg3x-django22
     python: 3.5
@@ -60,6 +72,26 @@ matrix:
     python: 3.6
   - env: TOX_ENV=py37-mg3x-django22
     python: 3.7
+  - env: TOX_ENV=py38-mg3x-django22
+    python: 3.8
+
+  - env: TOX_ENV=py35-mg3x-django30
+    python: 3.5
+  - env: TOX_ENV=py36-mg3x-django30
+    python: 3.6
+  - env: TOX_ENV=py37-mg3x-django30
+    python: 3.7
+  - env: TOX_ENV=py38-mg3x-django30
+    python: 3.8
+
+  - env: TOX_ENV=py35-mg3x-django30
+    python: 3.5
+  - env: TOX_ENV=py36-mg3x-django30
+    python: 3.6
+  - env: TOX_ENV=py37-mg3x-django30
+    python: 3.7
+  - env: TOX_ENV=py38-mg3x-django30
+    python: 3.8
 
 before_script:
   - sleep 15

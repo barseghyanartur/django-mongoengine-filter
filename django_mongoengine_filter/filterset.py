@@ -8,13 +8,14 @@ from django import forms
 from django.core.validators import EMPTY_VALUES
 from django.db import models
 from django.db.models.constants import LOOKUP_SEP
-from django.utils import six
 from django.utils.text import capfirst
 from django.utils.translation import ugettext as _
 
 import mongoengine
 from mongoengine.errors import LookUpError
 from mongoengine.fields import EmbeddedDocumentField, ListField
+
+import six
 
 from .filters import (
     Filter,
