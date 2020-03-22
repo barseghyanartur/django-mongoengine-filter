@@ -20,6 +20,10 @@ Full documentation on `Read the docs`_.
    :target: http://travis-ci.org/barseghyanartur/django-mongoengine-filter
    :alt: Build Status
 
+.. image:: https://readthedocs.org/projects/django-mongoengine-filter/badge/?version=latest
+    :target: http://django-mongoengine-filter.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
+
 .. image:: https://img.shields.io/badge/license-GPL--2.0--only%20OR%20LGPL--2.1--or--later-blue.svg
    :target: https://github.com/barseghyanartur/django-mongoengine-filter/#License
    :alt: GPL-2.0-only OR LGPL-2.1-or-later
