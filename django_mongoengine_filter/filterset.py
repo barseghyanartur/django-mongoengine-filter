@@ -197,6 +197,7 @@ class BaseFilterSet(object):
         self,
         data=None,
         queryset=None,
+        request=None,
         prefix=None,
         strict=None,
         *args,
@@ -208,6 +209,7 @@ class BaseFilterSet(object):
             queryset = self._meta.model.objects
         self.queryset = queryset
         self.form_prefix = prefix
+        self.request = request
         if strict is not None:
             self.strict = strict
 
@@ -230,6 +232,12 @@ class BaseFilterSet(object):
 
     def __getitem__(self, key):
         return self.qs[key]
+
+    def is_valid(self):
+        """
+        Return True if the underlying form has no errors, or False otherwise.
+        """
+        return self.is_bound and self.form.is_valid()
 
     @property
     def qs(self):
