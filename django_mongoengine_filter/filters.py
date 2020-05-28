@@ -62,8 +62,8 @@ class Filter(object):
             self.filter = action
         self.lookup_type = lookup_type
         self.widget = widget
-        self.required = required
         self.extra = kwargs
+        self.extra.setdefault('required', False)
         self.distinct = distinct
         self.exclude = exclude
 
@@ -101,6 +101,17 @@ class Filter(object):
                     **self.extra
                 )
 
+        return self._field
+
+    @property
+    def field(self):
+        if not hasattr(self, '_field'):
+            field_kwargs = self.extra.copy()
+
+            if settings.DISABLE_HELP_TEXT:
+                field_kwargs.pop('help_text', None)
+
+            self._field = self.field_class(label=self.label, **field_kwargs)
         return self._field
 
     def filter(self, qs, value):
