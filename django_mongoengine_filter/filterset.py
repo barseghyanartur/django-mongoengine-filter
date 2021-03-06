@@ -9,7 +9,7 @@ from django.core.validators import EMPTY_VALUES
 from django.db import models
 from django.db.models.constants import LOOKUP_SEP
 from django.utils.text import capfirst
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 
 import mongoengine
 from mongoengine.errors import LookUpError

@@ -22,7 +22,7 @@ except:  # pragma: nocover
     from django.utils.encoding import force_unicode as force_text  # noqa
 
 from django.utils.safestring import mark_safe
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 
 __all__ = ("LinkWidget", "LookupTypeWidget", "RangeWidget")
 
