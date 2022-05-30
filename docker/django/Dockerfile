@@ -7,7 +7,7 @@ RUN apt-get install -y cmake
 RUN apt-get install -y libpq-dev
 RUN apt-get install -y python-dev
 RUN apt-get install -y python-pip
-RUN apt-get install -y python-imaging
+RUN apt-get install -y python-pil
 RUN apt-get install -y mc
 RUN apt-get install -y nano
 
