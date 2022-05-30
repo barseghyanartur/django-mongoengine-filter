@@ -1,8 +1,28 @@
 version: '3'
 
 services:
+  django:
+    container_name: django_mongoengine_filter_django
+    image: django_elasticsearch_dsl_drf_backend:latest
+    build:
+      context: .
+      dockerfile: ./docker/django/Dockerfile
+    volumes:
+      - .:/backend
+      - ./docker/django:/docker/django
+    ports:
+      - "8000:8000"
+    depends_on:
+    - mongo
+    links:
+      - mongo:mongo
+    entrypoint:
+      - /backend/docker/django/entrypoint.sh
+    environment:
+      - DJANGO_SETTINGS_MODULE=settings.docker
 
   mongo:
+    container_name: django_mongoengine_filter_mongodb
     image: mongo
     restart: always
     environment:

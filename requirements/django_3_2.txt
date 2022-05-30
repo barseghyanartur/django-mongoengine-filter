@@ -1,6 +1,5 @@
 -r common.txt
 -r debug.txt
 -r test.txt
-#-r code_style.txt
 
-Django>=2.1,<2.2
+Django>=3.2,<4.0
