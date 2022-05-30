@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.urls import re_path as url
 
 from dfm_app.views import person_list, PersonListView
 
