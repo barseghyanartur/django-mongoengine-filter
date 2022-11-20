@@ -196,12 +196,13 @@ class BaseFilterSet(object):
     order_by_field = ORDER_BY_FIELD
     strict = True
 
-    def __init__(self, data=None, queryset=None, prefix=None, strict=None):
+    def __init__(self, data=None, queryset=None, request=None, prefix=None, strict=None):
         self.is_bound = data is not None
         self.data = data or {}
         if queryset is None:
             queryset = self._meta.model.objects
         self.queryset = queryset
+        self.request = request
         self.form_prefix = prefix
         if strict is not None:
             self.strict = strict
