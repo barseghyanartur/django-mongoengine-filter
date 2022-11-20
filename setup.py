@@ -21,7 +21,7 @@ tests_require = [
 
 setup(
     name="django-mongoengine-filter",
-    version="0.3.6",
+    version="0.3.5",
     description=(
         "django-mongoengine-filter is a reusable Django application inspired "
         "from django-filter for allowing mongoengine users to filter querysets "

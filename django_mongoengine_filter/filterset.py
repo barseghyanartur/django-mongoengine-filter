@@ -196,7 +196,7 @@ class BaseFilterSet(object):
     order_by_field = ORDER_BY_FIELD
     strict = True
 
-    def __init__(self, data=None, queryset=None, request=None, prefix=None, strict=None):
+    def __init__(self, data=None, queryset=None, *, request=None, prefix=None, strict=None):
         self.is_bound = data is not None
         self.data = data or {}
         if queryset is None:
