@@ -19,10 +19,17 @@ except ImportError:
 try:
     from django.utils.encoding import force_text
 except:  # pragma: nocover
-    from django.utils.encoding import force_unicode as force_text  # noqa
+    try:
+        from django.utils.encoding import force_unicode as force_text  # noqa
+    except:
+        from django.utils.encoding import force_str as force_text # django>=4.0
 
 from django.utils.safestring import mark_safe
-from django.utils.translation import ugettext as _
+
+try:
+    from django.utils.translation import ugettext as _ # django<4.0
+except:
+    from django.utils.translation import gettext as _ # django>=4.0
 
 __all__ = ("LinkWidget", "LookupTypeWidget", "RangeWidget")
 
