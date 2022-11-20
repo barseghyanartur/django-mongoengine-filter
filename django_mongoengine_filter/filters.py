@@ -6,10 +6,8 @@ from datetime import timedelta
 
 from django import forms
 from django.utils.timezone import now
-try:
-    from django.utils.translation import ugettext_lazy as _ # django<4.0
-except:
-    from django.utils.translation import gettext_lazy as _ # django>=4.0
+
+from django.utils.translation import gettext_lazy as _
 
 import six
 

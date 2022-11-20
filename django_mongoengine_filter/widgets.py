@@ -16,20 +16,11 @@ try:
 except ImportError:
     from django.forms.utils import flatatt
 
-try:
-    from django.utils.encoding import force_text
-except:  # pragma: nocover
-    try:
-        from django.utils.encoding import force_unicode as force_text  # noqa
-    except:
-        from django.utils.encoding import force_str as force_text # django>=4.0
+from django.utils.encoding import force_str as force_text
 
 from django.utils.safestring import mark_safe
 
-try:
-    from django.utils.translation import ugettext as _ # django<4.0
-except:
-    from django.utils.translation import gettext as _ # django>=4.0
+from django.utils.translation import gettext as _
 
 __all__ = ("LinkWidget", "LookupTypeWidget", "RangeWidget")
 
