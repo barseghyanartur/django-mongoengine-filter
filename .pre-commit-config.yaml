@@ -18,7 +18,6 @@ repos:
     hooks:
       - id: trailing-whitespace
         exclude: "data/"
-
       - id: end-of-file-fixer
       - id: check-yaml
       - id: check-toml
