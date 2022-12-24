@@ -75,7 +75,7 @@ except Exception:
     docs_settings.ALLOWED_HOSTS = ["*", "127.0.0.1", "localhost"]
 
 # -- Django configuration ------------------------------------------------------
-from django.conf import settings
+from django.conf import settings  # noqa
 
 if not settings.configured:
     settings.configure(**docs_settings.__dict__)
@@ -248,7 +248,8 @@ latex_documents = [
         "index",
         "django-mongoengine-filter.tex",
         "django-mongoengine-filter Documentation",
-        "Artur Barseghyan \\textless{}artur.barseghyan@gmail.com\\textgreater{}",
+        "Artur Barseghyan \\textless{}"
+        "artur.barseghyan@gmail.com\\textgreater{}",
         "manual",
     )
 ]

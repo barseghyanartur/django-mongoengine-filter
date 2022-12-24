@@ -66,7 +66,7 @@ exclude = [
     "dist",
     "node_modules",
     "venv",
-    "examples/django_example/project/wsgi.py",
+    "manage.py",
 ]
 per-file-ignores = {}
 
