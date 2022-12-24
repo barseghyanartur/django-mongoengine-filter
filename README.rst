@@ -34,8 +34,9 @@ Full documentation on `Read the docs`_.
 
 Requirements
 ============
-* Python 3.7, 3.8, 3.9, 3.10 or 3.11
-* Django 2.2, 3.0, 3.1, 3.2, 4.0 or 4.1
+* Python 3.7, 3.8, 3.9, 3.10 or 3.11.
+* MongoDB 3.x, 4.x, 5.x.
+* Django 2.2, 3.0, 3.1, 3.2, 4.0 or 4.1.
 
 Installation
 ============

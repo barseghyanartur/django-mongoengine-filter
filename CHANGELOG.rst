@@ -23,6 +23,8 @@ are used for versioning (schema follows below):
 - Drop support for Django < 2.2.
 - Tested against Python 3.9, 3.10 and 3.11.
 - Tested against Django 3.1, 3.2, 4.0 and 4.1.
+- Apply ``black``, ``isort`` and ``ruff``.
+- Fix GitHub CI.
 
 0.3.5
 -----
