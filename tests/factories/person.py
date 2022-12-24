@@ -14,11 +14,12 @@ def build_factory(cls, specified_fields=None):
 
 
 class PersonFactory(factory.mongoengine.MongoEngineFactory):
-    class Meta:
-        model = Person
 
     name = factory.Faker("word")
     age = factory.Faker("pyint")
     num_fingers = factory.Faker("pyint")
     profile_type = factory.fuzzy.FuzzyChoice(choices=PROFILE_TYPES)
     gender = factory.fuzzy.FuzzyChoice(choices=GENDERS)
+
+    class Meta:
+        model = Person

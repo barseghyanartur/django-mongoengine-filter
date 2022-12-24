@@ -11,8 +11,8 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
-import sys
 import os
+import sys
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -28,12 +28,12 @@ try:
     version = django_mongoengine_filter.__version__
     project = django_mongoengine_filter.__title__
     copyright = django_mongoengine_filter.__copyright__
-except Exception as e:
+except Exception:
     version = "0.1"
     project = u"django-filter-mongoengine"
     copyright = u"2019, Artur Barseghyan <artur.barseghyan@gmail.com>"
 
-    class Settings(object):
+    class Settings:
         pass
 
     docs_settings = Settings()

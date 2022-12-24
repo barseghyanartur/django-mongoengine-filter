@@ -1,0 +1,4 @@
+-r common.in
+-r test.in
+
+Django>=2.2,<3.0

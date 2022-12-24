@@ -1,6 +1,0 @@
--r common.txt
--r debug.txt
--r test.txt
-#-r code_style.txt
-
-Django>=1.11,<2.0

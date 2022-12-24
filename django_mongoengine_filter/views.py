@@ -1,4 +1,3 @@
-from __future__ import absolute_import
 from __future__ import unicode_literals
 
 from django.core.exceptions import ImproperlyConfigured
@@ -11,7 +10,7 @@ from .filterset import filterset_factory
 __all__ = ("BaseFilterView", "FilterMixin", "FilterView", "object_filter")
 
 
-class FilterMixin(object):
+class FilterMixin:
     """
     A mixin that provides a way to show and handle a FilterSet in a request.
     """

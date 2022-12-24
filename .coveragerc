@@ -1,0 +1,11 @@
+[run]
+relative_files = True
+omit =
+    tests/*
+    .tox/*
+
+[report]
+show_missing = True
+exclude_lines =
+    pragma: no cover
+#    raise NotImplementedError

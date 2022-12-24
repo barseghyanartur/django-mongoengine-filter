@@ -1,5 +1,4 @@
 import os
-import unittest
 
 from bs4 import BeautifulSoup
 
@@ -112,7 +111,3 @@ class FiltersTest(TestCase):
 
     def test_base_cbv(self):
         return self._test_base(self.url_cbv)
-
-
-if __name__ == "__main__":
-    unittest.main()

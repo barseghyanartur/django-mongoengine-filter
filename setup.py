@@ -1,8 +1,7 @@
 from setuptools import setup, find_packages
 
-f = open("README.rst")
-readme = f.read()
-f.close()
+with open("README.rst", "r") as _file:
+    readme = _file.read()
 
 install_requires = [
     'six>=1.9',
@@ -21,7 +20,7 @@ tests_require = [
 
 setup(
     name="django-mongoengine-filter",
-    version="0.3.5",
+    version="0.4.0",
     description=(
         "django-mongoengine-filter is a reusable Django application inspired "
         "from django-filter for allowing mongoengine users to filter querysets "
@@ -52,11 +51,11 @@ setup(
         "later (LGPLv2+)",
         "Operating System :: OS Independent",
         "Programming Language :: Python",
-        "Programming Language :: Python :: 2.7",
-        "Programming Language :: Python :: 3.5",
-        "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
         "Framework :: Django",
     ],
     python_requires=">=2.7",

@@ -16,8 +16,8 @@ Full documentation on `Read the docs`_.
     :target: https://pypi.python.org/pypi/django-mongoengine-filter/
     :alt: Supported Python versions
 
-.. image:: https://img.shields.io/travis/barseghyanartur/django-mongoengine-filter/master.svg
-   :target: http://travis-ci.org/barseghyanartur/django-mongoengine-filter
+.. image:: https://github.com/barseghyanartur/django-mongoengine-filter/workflows/test/badge.svg
+   :target: https://github.com/barseghyanartur/django-mongoengine-filter/actions
    :alt: Build Status
 
 .. image:: https://readthedocs.org/projects/django-mongoengine-filter/badge/?version=latest
@@ -34,8 +34,8 @@ Full documentation on `Read the docs`_.
 
 Requirements
 ============
-* Python 2.7, 3.5, 3.6, 3.7, 3.8
-* Django 1.11, 2.0, 2.1, 2.2, 3.0
+* Python 3.7, 3.8, 3.9, 3.10 or 3.11
+* Django 2.2, 3.0, 3.1, 3.2, 4.0 or 4.1
 
 Installation
 ============
@@ -160,7 +160,7 @@ To run tests in your working environment type:
 
 .. code-block:: sh
 
-    ./runtests.py
+    pytest -vrx
 
 To test with all supported Python versions type:
 
@@ -211,7 +211,9 @@ GPL-2.0-only OR LGPL-2.1-or-later
 
 Support
 =======
-For any issues contact me at the e-mail given in the `Author`_ section.
+For any security issues contact me at the e-mail given in the `Author`_ section.
+
+For overall issues, go to `GitHub <https://github.com/barseghyanartur/django-mongoengine-filter/issues>`_.
 
 Author
 ======

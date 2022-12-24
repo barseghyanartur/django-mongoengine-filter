@@ -1,3 +1,0 @@
--r django_2_1.txt
--r code_style.txt
--r docs.txt

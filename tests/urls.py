@@ -1,8 +1,8 @@
-from django.conf.urls import url
+from django.urls import re_path
 
 from dfm_app.views import person_list, PersonListView
 
 urlpatterns = [
-    url(r"^persons/$", person_list, name="person_list"),
-    url(r"^persons-cbv/$", PersonListView.as_view(), name="person_list_cbv"),
+    re_path(r"^persons/$", person_list, name="person_list"),
+    re_path(r"^persons-cbv/$", PersonListView.as_view(), name="person_list_cbv"),
 ]

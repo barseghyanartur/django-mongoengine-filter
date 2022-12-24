@@ -1,6 +1,6 @@
 
 Documentation
-===================================================
+=============
 Contents:
 
 .. toctree::
@@ -12,7 +12,7 @@ Contents:
    changelog
 
 Indices and tables
-===================================================
+==================
 
 * :ref:`genindex`
 * :ref:`modindex`

@@ -1,4 +1,3 @@
-from __future__ import absolute_import
 from __future__ import unicode_literals
 
 from collections import OrderedDict
@@ -72,6 +71,7 @@ def get_declared_filters(bases, attrs, with_base_filters=True):
 
 def get_model_field(model, f):
     parts = f.split(LOOKUP_SEP)
+    member = None
     if len(parts) == 1:
         try:
             return model._lookup_field(f)[0]
@@ -124,14 +124,12 @@ def filters_for_model(
     return field_dict
 
 
-class FilterSetOptions(object):
+class FilterSetOptions:
     def __init__(self, options=None):
         self.model = getattr(options, "model", None)
         self.fields = getattr(options, "fields", None)
         self.exclude = getattr(options, "exclude", None)
-
         self.order_by = getattr(options, "order_by", False)
-
         self.form = getattr(options, "form", forms.Form)
 
 
@@ -189,7 +187,7 @@ FILTER_FOR_DBFIELD_DEFAULTS = {
 }
 
 
-class BaseFilterSet(object):
+class BaseFilterSet:
     filter_overrides = {}
     order_by_field = ORDER_BY_FIELD
     strict = True
@@ -246,7 +244,7 @@ class BaseFilterSet(object):
                         value = self.form.fields[name].clean(raw_value)
                     except forms.ValidationError:
                         # for invalid values either:
-                        # strictly "apply" filter yielding no results and get outta here
+                        # strictly "apply" filter yielding no results and get out of here
                         if self.strict:
                             self._qs = self.queryset.none()
                             return self._qs

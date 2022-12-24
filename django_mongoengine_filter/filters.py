@@ -1,8 +1,6 @@
-from __future__ import absolute_import
 from __future__ import unicode_literals
 
 from datetime import timedelta
-
 
 from django import forms
 from django.utils.timezone import now
@@ -261,7 +259,7 @@ class MethodFilter(Filter):
         action = kwargs.get("action", None)
 
         # If the action is a string store the action and set the action to our
-        # own filter method so it can be backwards compatible and work as
+        # own filter method, so it can be backwards compatible and work as
         # expected, the parent will still treat it as a filter that has an
         # action
         self.parent_action = ""

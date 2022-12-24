@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-python setup.py develop
+pip install -e .
 ./scripts/create_dirs.sh
