@@ -35,7 +35,8 @@ ensure_newline_before_comments = true
 line_length = 80
 known_first_party = "django_mongoengine_filter"
 known_third_party = ["django", "factory"]
-skip = ["wsgi.py",]
+skip = ["wsgi.py"]
+skip_glob = [".tox/**"]
 
 [tool.ruff]
 line-length = 80

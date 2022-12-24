@@ -3,33 +3,27 @@ from __future__ import unicode_literals
 from collections import OrderedDict
 from copy import deepcopy
 
+import mongoengine
+import six
 from django import forms
 from django.core.validators import EMPTY_VALUES
 from django.db import models
 from django.db.models.constants import LOOKUP_SEP
 from django.utils.text import capfirst
-
 from django.utils.translation import gettext as _
-
-import mongoengine
 from mongoengine.errors import LookUpError
 from mongoengine.fields import EmbeddedDocumentField, ListField
 
-import six
-
-from .filters import (
-    Filter,
-    StringFilter,
+from .filters import (  # DateFilter,; TimeFilter,
     BooleanFilter,
     ChoiceFilter,
-    DateFilter,
     DateTimeFilter,
-    TimeFilter,
+    Filter,
     ModelChoiceFilter,
     ModelMultipleChoiceFilter,
     NumberFilter,
+    StringFilter,
 )
-
 
 ORDER_BY_FIELD = "o"
 
@@ -192,7 +186,15 @@ class BaseFilterSet:
     order_by_field = ORDER_BY_FIELD
     strict = True
 
-    def __init__(self, data=None, queryset=None, *, request=None, prefix=None, strict=None):
+    def __init__(
+        self,
+        data=None,
+        queryset=None,
+        *,
+        request=None,
+        prefix=None,
+        strict=None,
+    ):
         self.is_bound = data is not None
         self.data = data or {}
         if queryset is None:
@@ -244,7 +246,8 @@ class BaseFilterSet:
                         value = self.form.fields[name].clean(raw_value)
                     except forms.ValidationError:
                         # for invalid values either:
-                        # strictly "apply" filter yielding no results and get out of here
+                        # strictly "apply" filter yielding no results
+                        # and get out of here
                         if self.strict:
                             self._qs = self.queryset.none()
                             return self._qs

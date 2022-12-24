@@ -1,21 +1,21 @@
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
 with open("README.rst", "r") as _file:
     readme = _file.read()
 
 install_requires = [
-    'six>=1.9',
+    "six>=1.9",
 ]
 
 extras_require = []
 
 tests_require = [
-    'factory_boy',
-    'fake-factory',
-    'pytest',
-    'pytest-django',
-    'pytest-cov',
-    'tox',
+    "factory_boy",
+    "fake-factory",
+    "pytest",
+    "pytest-django",
+    "pytest-cov",
+    "tox",
 ]
 
 setup(
@@ -32,12 +32,12 @@ setup(
     url="https://github.com/barseghyanartur/django-mongoengine-filter",
     project_urls={
         "Bug Tracker": "https://github.com/barseghyanartur/"
-                       "django-mongoengine-filter/issues",
+        "django-mongoengine-filter/issues",
         "Documentation": "https://django-mongoengine-filter.readthedocs.io/",
         "Source Code": "https://github.com/barseghyanartur/"
-                       "django-mongoengine-filter",
+        "django-mongoengine-filter",
         "Changelog": "https://django-mongoengine-filter.readthedocs.io/"
-                     "en/latest/changelog.html",
+        "en/latest/changelog.html",
     },
     packages=find_packages(exclude=["tests"]),
     package_data={"django_mongoengine_filter": ["locale/*/LC_MESSAGES/*"]},

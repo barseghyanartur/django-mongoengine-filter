@@ -1,26 +1,16 @@
-import os
-
 from bs4 import BeautifulSoup
-
-os.environ["DJANGO_SETTINGS_MODULE"] = "tests.settings"
-import django
-
-django.setup()
-
+from django.test import Client, TestCase
+from django.urls import reverse
 from faker import Faker
-
 from mongoengine import connect
 
-from django.urls import reverse
-from django.test import TestCase, Client
-
 from .dfm_app.constants import (
-    GENDER_MALE,
     GENDER_FEMALE,
+    GENDER_MALE,
     PROFILE_TYPE_FREE,
     PROFILE_TYPE_MEMBER,
 )
-from .factories import *
+from .factories import PersonFactory
 
 __all__ = ("FiltersTest",)
 

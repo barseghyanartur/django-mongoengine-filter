@@ -2,14 +2,12 @@ from __future__ import unicode_literals
 
 from datetime import timedelta
 
+import six
 from django import forms
 from django.utils.timezone import now
-
 from django.utils.translation import gettext_lazy as _
 
-import six
-
-from .fields import RangeField, LookupTypeField, Lookup
+from .fields import Lookup, LookupTypeField, RangeField
 
 try:
     from django.db.models.sql.constants import QUERY_TERMS
@@ -53,7 +51,7 @@ class Filter(object):
         required=False,
         distinct=False,
         exclude=False,
-        **kwargs
+        **kwargs,
     ):
         self.name = name
         self.label = label
@@ -97,7 +95,7 @@ class Filter(object):
                     label=self.label,
                     widget=self.widget,
                     help_text=help_text,
-                    **self.extra
+                    **self.extra,
                 )
 
         return self._field
@@ -185,7 +183,7 @@ class RangeFilter(Filter):
         return qs
 
 
-_truncate = lambda dt: dt.replace(hour=0, minute=0, second=0)
+_truncate = lambda dt: dt.replace(hour=0, minute=0, second=0)  # noqa
 
 
 class DateRangeFilter(ChoiceFilter):

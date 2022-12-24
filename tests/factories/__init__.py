@@ -1,1 +1,1 @@
-from .person import *
+from .person import *  # noqa

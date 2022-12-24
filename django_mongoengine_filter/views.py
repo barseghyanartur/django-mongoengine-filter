@@ -2,8 +2,10 @@ from __future__ import unicode_literals
 
 from django.core.exceptions import ImproperlyConfigured
 from django.views.generic import View
-from django.views.generic.list import MultipleObjectMixin
-from django.views.generic.list import MultipleObjectTemplateResponseMixin
+from django.views.generic.list import (
+    MultipleObjectMixin,
+    MultipleObjectTemplateResponseMixin,
+)
 
 from .filterset import filterset_factory
 

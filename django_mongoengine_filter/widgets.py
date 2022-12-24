@@ -4,7 +4,7 @@ from itertools import chain
 
 try:
     from urllib.parse import urlencode
-except:
+except ImportError:
     from urllib import urlencode  # noqa
 
 from django import forms
@@ -16,9 +16,7 @@ except ImportError:
     from django.forms.utils import flatatt
 
 from django.utils.encoding import force_str as force_text
-
 from django.utils.safestring import mark_safe
-
 from django.utils.translation import gettext as _
 
 __all__ = ("LinkWidget", "LookupTypeWidget", "RangeWidget")

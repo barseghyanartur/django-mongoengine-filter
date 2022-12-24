@@ -4,7 +4,7 @@ from collections import namedtuple
 
 from django import forms
 
-from .widgets import RangeWidget, LookupTypeWidget
+from .widgets import LookupTypeWidget, RangeWidget
 
 __all__ = ("Lookup", "LookupTypeField", "RangeField")
 

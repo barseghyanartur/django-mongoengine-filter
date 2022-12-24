@@ -1,5 +1,6 @@
-from mongoengine import fields, document
-from .constants import PROFILE_TYPES, PROFILE_TYPE_FREE, GENDERS, GENDER_MALE
+from mongoengine import document, fields
+
+from .constants import GENDER_MALE, GENDERS, PROFILE_TYPE_FREE, PROFILE_TYPES
 
 __all__ = ("Person",)
 

@@ -30,8 +30,8 @@ try:
     copyright = django_mongoengine_filter.__copyright__
 except Exception:
     version = "0.1"
-    project = u"django-filter-mongoengine"
-    copyright = u"2019, Artur Barseghyan <artur.barseghyan@gmail.com>"
+    project = "django-filter-mongoengine"
+    copyright = "2019, Artur Barseghyan <artur.barseghyan@gmail.com>"
 
     class Settings:
         pass
@@ -247,8 +247,8 @@ latex_documents = [
     (
         "index",
         "django-mongoengine-filter.tex",
-        u"django-mongoengine-filter Documentation",
-        u"Artur Barseghyan \\textless{}artur.barseghyan@gmail.com\\textgreater{}",
+        "django-mongoengine-filter Documentation",
+        "Artur Barseghyan \\textless{}artur.barseghyan@gmail.com\\textgreater{}",
         "manual",
     )
 ]
@@ -282,8 +282,8 @@ man_pages = [
     (
         "index",
         "django-mongoengine-filter",
-        u"django-mongoengine-filter Documentation",
-        [u"Artur Barseghyan <artur.barseghyan@gmail.com>"],
+        "django-mongoengine-filter Documentation",
+        ["Artur Barseghyan <artur.barseghyan@gmail.com>"],
         1,
     )
 ]
@@ -301,8 +301,8 @@ texinfo_documents = [
     (
         "index",
         "django-mongoengine-filter",
-        u"ska Documentation",
-        u"Artur Barseghyan <artur.barseghyan@gmail.com>",
+        "ska Documentation",
+        "Artur Barseghyan <artur.barseghyan@gmail.com>",
         "django-mongoengine-filter",
         "django-filter for MongoEngine.",
         "Miscellaneous",
@@ -325,10 +325,10 @@ texinfo_documents = [
 # -- Options for Epub output ---------------------------------------------------
 
 # Bibliographic Dublin Core info.
-epub_title = u"django-mongoengine-filter"
-epub_author = u"Artur Barseghyan <artur.barseghyan@gmail.com>"
-epub_publisher = u"Artur Barseghyan <artur.barseghyan@gmail.com>"
-epub_copyright = u"2019, Artur Barseghyan <artur.barseghyan@gmail.com>"
+epub_title = "django-mongoengine-filter"
+epub_author = "Artur Barseghyan <artur.barseghyan@gmail.com>"
+epub_publisher = "Artur Barseghyan <artur.barseghyan@gmail.com>"
+epub_copyright = "2019, Artur Barseghyan <artur.barseghyan@gmail.com>"
 
 # The language of the text. It defaults to the language option
 # or en if the language is not set.

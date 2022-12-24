@@ -1,8 +1,7 @@
 import factory
 import factory.fuzzy
-
+from dfm_app.constants import GENDERS, PROFILE_TYPES
 from dfm_app.documents import Person
-from dfm_app.constants import PROFILE_TYPES, GENDERS
 
 __all__ = ("PersonFactory",)
 
