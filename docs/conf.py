@@ -28,59 +28,16 @@ try:
     version = django_mongoengine_filter.__version__
     project = django_mongoengine_filter.__title__
     copyright = django_mongoengine_filter.__copyright__
-except Exception as err:
-    raise err
+except Exception:
     version = "0.1"
     project = "django-filter-mongoengine"
     copyright = "2019, Artur Barseghyan <artur.barseghyan@gmail.com>"
 
-    class Settings:
-        pass
-
-    docs_settings = Settings()
-    docs_settings.DATABASES = {
-        "default": {"ENGINE": "django.db.backends.sqlite3", "NAME": ":memory:"}
-    }
-
-    docs_settings.SECRET_KEY = "top-secret"
-
-    docs_settings.INSTALLED_APPS = [
-        "django.contrib.admin",
-        "django.contrib.auth",
-        "django.contrib.contenttypes",
-        "django.contrib.sessions",
-        "django.contrib.messages",
-        "django.contrib.staticfiles",
-        # Third party
-        "dfm_app",
-    ]
-
-    docs_settings.ROOT_URLCONF = "urls"
-
-    docs_settings.TEMPLATES = [
-        {
-            "BACKEND": "django.template.backends.django.DjangoTemplates",
-            "DIRS": [],
-            "APP_DIRS": True,
-            "OPTIONS": {
-                "context_processors": [
-                    "django.template.context_processors.debug",
-                    "django.template.context_processors.request",
-                    "django.contrib.auth.context_processors.auth",
-                    "django.contrib.messages.context_processors.messages",
-                ]
-            },
-        }
-    ]
-
-    docs_settings.ALLOWED_HOSTS = ["*", "127.0.0.1", "localhost"]
-
 # -- Django configuration ------------------------------------------------------
-from django.conf import settings  # noqa
+os.environ["DJANGO_SETTINGS_MODULE"] = "settings.dev"
+import django
 
-if not settings.configured:
-    settings.configure(**docs_settings.__dict__)
-
+django.setup()
 # -- General configuration -----------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
