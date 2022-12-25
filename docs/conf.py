@@ -76,7 +76,7 @@ except Exception:
 
 # -- Django configuration ------------------------------------------------------
 from django.conf import settings  # noqa
-
+print(docs_settings.__dict__)
 if not settings.configured:
     settings.configure(**docs_settings.__dict__)
 
