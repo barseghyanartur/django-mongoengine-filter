@@ -19,8 +19,8 @@ import sys
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 # sys.path.insert(0, os.path.abspath('.'))
 
-sys.path.insert(0, os.path.abspath("."))
-sys.path.insert(0, os.path.abspath("./tests"))
+sys.path.insert(0, os.path.abspath(".."))
+sys.path.insert(0, os.path.abspath("../tests"))
 try:
     import django_mongoengine_filter
     from tests import settings as docs_settings
@@ -34,7 +34,7 @@ except Exception:
     copyright = "2019, Artur Barseghyan <artur.barseghyan@gmail.com>"
 
     class Settings:
-        __name__ = "Settings"
+        pass
 
     docs_settings = Settings()
     docs_settings.DATABASES = {
@@ -76,7 +76,7 @@ except Exception:
 
 # -- Django configuration ------------------------------------------------------
 from django.conf import settings  # noqa
-print(docs_settings.__dict__)
+
 if not settings.configured:
     settings.configure(**docs_settings.__dict__)
 
