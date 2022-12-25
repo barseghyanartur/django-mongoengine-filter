@@ -34,7 +34,7 @@ except Exception:
     copyright = "2019, Artur Barseghyan <artur.barseghyan@gmail.com>"
 
     class Settings:
-        pass
+        __name__ = "Settings"
 
     docs_settings = Settings()
     docs_settings.DATABASES = {
