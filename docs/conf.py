@@ -28,7 +28,8 @@ try:
     version = django_mongoengine_filter.__version__
     project = django_mongoengine_filter.__title__
     copyright = django_mongoengine_filter.__copyright__
-except Exception:
+except Exception as err:
+    raise err
     version = "0.1"
     project = "django-filter-mongoengine"
     copyright = "2019, Artur Barseghyan <artur.barseghyan@gmail.com>"
