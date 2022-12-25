@@ -105,14 +105,14 @@ to the widgets that are included with Django that you can use there are
 additional ones that django-filter provides which may be useful:
 
     * ``django_filters.widgets.LinkWidget`` -- this displays the options in a
-      mannner similar to the way the Django Admin does, as a series of links.
+      manner similar to the way the Django Admin does, as a series of links.
       The link for the selected option will have ``class="selected"``.
 
 ``action``
 ~~~~~~~~~~
 
-An optional callable that tells the filter how to handle the queryset.  It
-recieves a ``QuerySet`` and the value to filter on and should return a
+An optional callable that tells the filter how to handle the queryset. It
+receives a ``QuerySet`` and the value to filter on and should return a
 ``Queryset`` that is filtered appropriately.
 
 ``lookup_type``
@@ -121,21 +121,22 @@ recieves a ``QuerySet`` and the value to filter on and should return a
 The type of lookup that should be performed using the Django ORM.  All the
 normal options are allowed, and should be provided as a string.  You can also
 provide either ``None`` or a ``list`` or a ``tuple``.  If ``None`` is provided,
-then the user can select the lookup type from all the ones available in the Django
-ORM.  If a ``list`` or ``tuple`` is provided, then the user can select from those
-options.
+then the user can select the lookup type from all the ones available in the
+Django ORM.  If a ``list`` or ``tuple`` is provided, then the user can select
+from those options.
 
 ``distinct``
 ~~~~~~~~~~~~
 
 A boolean value that specifies whether the Filter will use distinct on the
-queryset. This option can be used to eliminate duplicate results when using filters that span related models. Defaults to ``False``.
+queryset. This option can be used to eliminate duplicate results when using
+filters that span related models. Defaults to ``False``.
 
 ``exclude``
 ~~~~~~~~~~~
 
-A boolean value that specifies whether the Filter should use ``filter`` or ``exclude`` on the queryset.
-Defaults to ``False``.
+A boolean value that specifies whether the Filter should use ``filter``
+or ``exclude`` on the queryset. Defaults to ``False``.
 
 
 ``**kwargs``

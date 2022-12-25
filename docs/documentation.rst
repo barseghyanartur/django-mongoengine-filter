@@ -7,8 +7,9 @@ Contents:
    :maxdepth: 20
 
    index
-   filters_doc
-   widgets_doc
+   filters
+   widgets
+   usage
    changelog
 
 Indices and tables
