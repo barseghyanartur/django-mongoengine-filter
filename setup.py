@@ -27,6 +27,7 @@ setup(
         "dynamically."
     ),
     long_description=readme,
+    keywords="mongoengine, django-filter",
     author="Artur Barseghyhan",
     author_email="artur.barseghyan@gmail.com",
     url="https://github.com/barseghyanartur/django-mongoengine-filter",
@@ -58,7 +59,7 @@ setup(
         "Programming Language :: Python :: 3.11",
         "Framework :: Django",
     ],
-    python_requires=">=2.7",
+    python_requires=">=3.7",
     install_requires=(install_requires + extras_require),
     tests_require=tests_require,
     include_package_data=True,
