@@ -70,7 +70,7 @@ class Filter(object):
     @property
     def field(self):
         if not hasattr(self, "_field"):
-            help_text = _("This is an exclusion filter") if self.exclude else ""
+            help_text = _("This is an exclusion filter") if self.exclude else self.extra.pop("help_text", "")
             if self.lookup_type is None or isinstance(
                 self.lookup_type, (list, tuple)
             ):
