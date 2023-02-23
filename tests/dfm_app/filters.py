@@ -6,7 +6,6 @@ __all__ = ("PersonFilter",)
 
 
 class PersonFilter(django_mongoengine_filter.FilterSet):
-
     profile_type = django_mongoengine_filter.StringFilter()
     ten_fingers = django_mongoengine_filter.MethodFilter(
         action="ten_fingers_filter"
