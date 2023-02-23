@@ -13,7 +13,6 @@ def build_factory(cls, specified_fields=None):
 
 
 class PersonFactory(factory.mongoengine.MongoEngineFactory):
-
     name = factory.Faker("word")
     age = factory.Faker("pyint")
     num_fingers = factory.Faker("pyint")

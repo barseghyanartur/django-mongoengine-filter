@@ -6,7 +6,6 @@ __all__ = ("Person",)
 
 
 class Person(document.Document):
-
     name = fields.StringField(
         required=True, max_length=255, default="Robot", verbose_name="Name"
     )
