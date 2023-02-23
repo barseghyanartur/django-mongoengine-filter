@@ -1,7 +1,7 @@
 from .filters import *  # noqa
 from .filterset import FilterSet
 
-VERSION = (0, 4, 0)
+VERSION = (0, 4, 1)
 
 __title__ = "django-mongoengine-filter"
 __version__ = ".".join([str(_i) for _i in VERSION])
