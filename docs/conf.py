@@ -19,8 +19,8 @@ import sys
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 # sys.path.insert(0, os.path.abspath('.'))
 
-sys.path.insert(0, os.path.abspath("."))
-sys.path.insert(0, os.path.abspath("./tests"))
+sys.path.insert(0, os.path.abspath(".."))
+sys.path.insert(0, os.path.abspath("../tests"))
 try:
     import django_mongoengine_filter
     from tests import settings as docs_settings
@@ -33,53 +33,11 @@ except Exception:
     project = "django-filter-mongoengine"
     copyright = "2019, Artur Barseghyan <artur.barseghyan@gmail.com>"
 
-    class Settings:
-        pass
-
-    docs_settings = Settings()
-    docs_settings.DATABASES = {
-        "default": {"ENGINE": "django.db.backends.sqlite3", "NAME": ":memory:"}
-    }
-
-    docs_settings.SECRET_KEY = "top-secret"
-
-    docs_settings.INSTALLED_APPS = [
-        "django.contrib.admin",
-        "django.contrib.auth",
-        "django.contrib.contenttypes",
-        "django.contrib.sessions",
-        "django.contrib.messages",
-        "django.contrib.staticfiles",
-        # Third party
-        "dfm_app",
-    ]
-
-    docs_settings.ROOT_URLCONF = "urls"
-
-    docs_settings.TEMPLATES = [
-        {
-            "BACKEND": "django.template.backends.django.DjangoTemplates",
-            "DIRS": [],
-            "APP_DIRS": True,
-            "OPTIONS": {
-                "context_processors": [
-                    "django.template.context_processors.debug",
-                    "django.template.context_processors.request",
-                    "django.contrib.auth.context_processors.auth",
-                    "django.contrib.messages.context_processors.messages",
-                ]
-            },
-        }
-    ]
-
-    docs_settings.ALLOWED_HOSTS = ["*", "127.0.0.1", "localhost"]
-
 # -- Django configuration ------------------------------------------------------
-from django.conf import settings  # noqa
+os.environ["DJANGO_SETTINGS_MODULE"] = "settings.dev"
+import django
 
-if not settings.configured:
-    settings.configure(**docs_settings.__dict__)
-
+django.setup()
 # -- General configuration -----------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
