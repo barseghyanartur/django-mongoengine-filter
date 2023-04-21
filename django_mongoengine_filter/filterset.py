@@ -226,9 +226,6 @@ class BaseFilterSet:
         return self.qs[key]
 
     def is_valid(self):
-        """
-        Return True if the underlying form has no errors, or False otherwise.
-        """
         return self.is_bound and self.form.is_valid()
 
     @property
