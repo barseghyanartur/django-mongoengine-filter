@@ -101,7 +101,7 @@ class FiltersTest(TestCase):
             "{url}?agnostic=yes".format(url=url)
         )
         soup_all = BeautifulSoup(
-            getattr(response_all, "content", ""), features="html.parser"
+            getattr(response_agnostic, "content", ""), features="html.parser"
         )
         self.assertEqual(len(soup_all.find_all("li")), 3)
 
