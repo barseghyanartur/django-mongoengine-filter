@@ -21,6 +21,8 @@ class PersonFilter(django_mongoengine_filter.FilterSet):
         fields = ["profile_type", "ten_fingers", "agnostic"]
 
     def ten_fingers_filter(self, queryset, name, value):
+        if not self.is_valid():
+            raise Exception()
         if value == "yes":
             return queryset.filter(num_fingers=10)
         return queryset
