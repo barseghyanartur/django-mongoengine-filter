@@ -10,7 +10,7 @@ class PersonFilter(django_mongoengine_filter.FilterSet):
     ten_fingers = django_mongoengine_filter.MethodFilter(
         action="ten_fingers_filter"
     )
-    # agnostic = django_mongoengine_filter.BooleanFilter()
+    agnostic = django_mongoengine_filter.BooleanFilter()
     # gender = django_mongoengine_filter.StringFilter()
     # contract_type = django_mongoengine_filter.StringFilter()
     # type = django_mongoengine_filter.StringFilter()

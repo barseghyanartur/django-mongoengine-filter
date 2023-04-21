@@ -15,7 +15,9 @@ def person_list(request):
     """Sample function-based view."""
     filter_obj = PersonFilter(request.GET, queryset=Person.objects)
     return render(
-        request, "dfm_app/person_list.html", {"object_list": filter_obj.qs}
+        request,
+        "dfm_app/person_list.html",
+        {"object_list": filter_obj.qs, "count": filter_obj.count()},
     )
 
 
