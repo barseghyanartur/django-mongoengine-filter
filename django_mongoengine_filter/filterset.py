@@ -231,7 +231,6 @@ class BaseFilterSet:
         """
         return self.is_bound and self.form.is_valid()
 
-
     @property
     def qs(self):
         if not hasattr(self, "_qs"):
