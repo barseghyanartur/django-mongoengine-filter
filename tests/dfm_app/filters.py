@@ -10,7 +10,7 @@ class PersonFilter(django_mongoengine_filter.FilterSet):
     ten_fingers = django_mongoengine_filter.MethodFilter(
         action="ten_fingers_filter"
     )
-    # agnostic = django_mongoengine_filter.BooleanFilter()
+    agnostic = django_mongoengine_filter.BooleanFilter()
     # gender = django_mongoengine_filter.StringFilter()
     # contract_type = django_mongoengine_filter.StringFilter()
     # type = django_mongoengine_filter.StringFilter()
@@ -21,6 +21,8 @@ class PersonFilter(django_mongoengine_filter.FilterSet):
         fields = ["profile_type", "ten_fingers", "agnostic"]
 
     def ten_fingers_filter(self, queryset, name, value):
+        if not self.is_valid():
+            raise Exception()
         if value == "yes":
             return queryset.filter(num_fingers=10)
         return queryset

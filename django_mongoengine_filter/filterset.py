@@ -225,6 +225,9 @@ class BaseFilterSet:
     def __getitem__(self, key):
         return self.qs[key]
 
+    def is_valid(self):
+        return self.is_bound and self.form.is_valid()
+
     @property
     def qs(self):
         if not hasattr(self, "_qs"):
