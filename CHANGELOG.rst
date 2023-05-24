@@ -15,6 +15,12 @@ are used for versioning (schema follows below):
   0.3.4 to 0.4).
 - All backwards incompatible changes are mentioned in this document.
 
+0.4.2
+-----
+2023-05-24
+
+- Fix `AttributeError: 'BaseFilterSet' object has no attribute 'is_valid'` issue.
+
 0.4.1
 -----
 2023-02-23
