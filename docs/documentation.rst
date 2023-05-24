@@ -10,6 +10,7 @@ Contents:
    filters
    widgets
    usage
+   recipes
    changelog
 
 Indices and tables
